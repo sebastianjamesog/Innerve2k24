@@ -1,0 +1,496 @@
+@font-face {
+    font-family: 'Aloevera'; /* Custom font name */
+    src: url('fonts/updatefont.ttf') format('truetype'); /* Path to your Aloevera font file */
+    font-weight: normal; /* Specify the weight if applicable */
+    font-style: normal; /* Specify the style if applicable */
+}
+
+@font-face {
+    font-family: 'Baby'; /* Custom font name for Baby font */
+    src: url('fonts/baby.otf') format('truetype'); /* Path to your baby.ttf font file */
+    font-weight: normal; /* Specify the weight if applicable */
+    font-style: normal; /* Specify the style if applicable */
+}
+
+:root {
+    --main-bg: #000000;
+    --pink: 255, 0, 89;
+    --violet: 186, 0, 253;
+    --blue: 0, 165, 253;
+    --yellow: 255, 200, 0;
+    --light: 255, 255, 255;
+    --alpha: .5;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack navbar and container */
+    align-items: center;
+    gap: 2rem;
+    min-height: 100vh;
+    background-color: var(--main-bg);
+}
+
+.navbar {
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Optional: Add a blur effect to the background */
+    padding: 1rem; /* Padding for the navbar */
+    position: absolute; /* Position it at the top */
+    top: 0; /* Align to the top */
+    z-index: 100; /* Ensure it appears above other elements */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and links */
+}
+
+.logo {
+    height: 60px; /* Height for the logo */
+    margin-right: 1rem; /* Space between logo and links */
+}
+
+.nav-links {
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center; /* Center the links */
+    list-style: none; /* Remove bullet points */
+}
+
+.nav-links li {
+    margin: 0 1.5rem; /* Space between each link */
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted white for subtlety */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.4rem; /* Font size */
+    font-family: 'Aloevera', cursive; /* Custom font for links */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: rgba(255, 0, 89, 1); /* Change color on hover */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center elements horizontally */
+    margin-top: 250px; /* Space from the navbar */
+    gap: 2rem; /* Added space between bubble and headline */
+}
+
+.bubble {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 2rem rgba(var(--light), 1), 
+                inset 2rem 0 4rem rgba(var(--pink), 1),
+                inset -2rem 0 6rem rgba(var(--blue), 1),
+                inset 0 4rem 4rem rgba(var(--violet), 1),
+                inset 0 -2rem 2rem rgba(var(--yellow), 1),
+                inset 2rem -2rem 1rem rgba(var(--yellow), 1),
+                0 0 4rem rgba(var(--light), .2),
+                2rem 0 8rem rgba(var(--pink), var(--alpha)),
+                -2rem 0 8rem rgba(var(--blue), var(--alpha)),
+                0 4rem 8rem rgba(var(--violet), var(--alpha)),
+                0 -2rem 8rem rgba(var(--yellow), var(--alpha));
+    animation: floating 3s ease-in-out infinite; /* Add animation */
+}
+
+.headline {
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted white */
+    font-size: 3rem; /* Size of the headline */
+    font-family: 'Baby', cursive; /* Custom font for the headline */
+    text-align: center; /* Center the text */
+}
+.headlineevent
+{
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted white */
+    font-size: 3rem; /* Size of the headline */
+    font-family: 'Aloevera', cursive; /* Custom font for the headline */
+    text-align: center; /* Center the text */  
+}
+/* Guidelines Section Fix */
+/*
+.guideline-item img {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px; 
+}
+
+
+.guidelines-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+    width: 90%;
+    text-align: center;
+}
+*/
+.guidelines-section {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for guidelines */
+    padding: 2rem; /* Padding for guidelines section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.guideline-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.guideline-item {
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 1rem; /* Space between items */
+}
+
+.arrow-icon {
+    width: 24px; /* Size of the arrow icon */
+    height: 24px; /* Maintain aspect ratio */
+    margin-right: 1rem; /* Space between icon and text */
+}
+
+#cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem; /* Adjust the gap between cards */
+}
+.important-red {
+  color: red;
+}
+
+.card {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: scale 100ms;
+    margin: 1rem; /* Adding margin around each card */
+}
+
+  .card .card-front-image {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .card .card-image {
+    width: clamp(300px, 20vw, 500px);
+    aspect-ratio: 2 / 3;
+    border-radius: clamp(0.5rem, 0.75vw, 2rem);
+  }
+  
+  .card-faders {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1500ms;
+    pointer-events: none;
+  }
+  
+  .card:hover .card-faders {
+    opacity: 1;
+  }
+  
+  .card:active {
+    scale: 0.98;
+  }
+  
+  .card-fader {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  
+  .card-fader:nth-child(odd) {
+    animation: fade-left 3s linear infinite;
+  }
+  
+  .card-fader:nth-child(even) {
+    animation: fade-right 3s linear infinite;
+  }
+  
+  .card-fader:is(:nth-child(3), :nth-child(4)) {
+    animation-delay: 750ms;
+  }
+  
+  .card-fader:is(:nth-child(5), :nth-child(6)) {
+    animation-delay: 1500ms;
+  }
+  
+  .card-fader:is(:nth-child(7), :nth-child(8)) {
+    animation-delay: 2250ms;
+  }
+  @keyframes scroll {
+    0% { 
+      transform: translateX(0); 
+    }
+    100% { 
+      transform: translateX(calc(-250px * 7)); 
+    }
+  }
+  /*
+  .slider {
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+  }
+  
+  .slider::before,
+  .slider::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+  
+  .slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  
+  .slider::before {
+    left: 0;
+    top: 0;
+  }
+  
+  .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+  
+  .slide {
+    height: 100px;
+    width: 250px;
+  } */
+  @media (max-width: 1200px) {
+    body {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  
+    #cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+      padding: 4rem;
+    }
+  
+    .card .card-image {
+      width: 400px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #cards {
+      gap: 2rem;
+      padding: 2rem;
+    }
+  
+    .card {
+      width: 80%;
+    }
+  
+    .card .card-image {
+      width: 100%;
+    }
+  }
+  
+  @keyframes fade-left {
+    from {
+      scale: 1;
+      translate: 0%;
+      opacity: 1;
+    }
+  
+    to {
+      scale: 0.8;
+      translate: -30%;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fade-right {
+    from {
+      scale: 1;
+      translate: 0%;
+      opacity: 1;
+    }
+  
+    to {
+      scale: 0.8;
+      translate: 30%;
+      opacity: 0;
+    }
+  }
+  
+
+@keyframes floating {
+    0% {
+        transform: translatey(0); /* Start position */
+    }
+    50% {
+        transform: translatey(-15px); /* Upward float */
+    }
+    100% {
+        transform: translatey(0); /* Return to start */
+    }
+}
+
+#partner-section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 logos per row */
+  grid-template-rows: 200px; /* Single row of logos */
+  grid-gap: 10px;
+  margin: auto;
+  width: 80%;
+}
+
+#partner-section > div > img {
+  border-radius: 20px;
+  width: 150px;
+  height: 150px;
+}
+
+
+
+#buttun {
+  width: 200px;
+  height: auto;
+  text-align: center;
+  border: solid red;
+  margin: auto;
+  border-radius: 10px;
+  color: red;
+}
+
+#top-section {
+  width: auto;
+  height: auto;
+  text-align: center;
+  margin: auto;
+}
+
+#top-section > h2 {
+  font-size: 150px;
+  color: rgb(136, 131, 131);
+}
+
+@media all and (min-width: 85px) and (max-width: 450px) {
+  #partner-section {
+      grid-template-columns: repeat(2, 1fr); /* 2 logos per row for small screens */
+      grid-template-rows: repeat(3, 200px); /* Adjusting for small screens */
+      grid-gap: 40px;
+  }
+}
+
+@media all and (min-width: 451px) and (max-width: 850px) {
+  #partner-section {
+      grid-template-columns: repeat(3, 1fr); /* 3 logos per row for medium screens */
+      grid-template-rows: repeat(2, 200px); /* Adjust for only 5 logos total */
+      grid-gap: 40px;
+  }
+}
+
+@media all and (min-width: 851px) {
+  #partner-section {
+      grid-template-columns: repeat(5, 1fr); /* 5 logos per row */
+      grid-template-rows: 200px;
+      grid-gap: 40px;
+  }
+}
+
+/* Ensure all images and text scale with viewport */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90vw;
+    padding: 20px;
+}
+
+/* Navbar responsive with hamburger menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar .logo {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Hamburger menu styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+}
+
+/* Media Queries for smaller screens */
+@media only screen and (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: var(--main-bg);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .navbar.active ul {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
